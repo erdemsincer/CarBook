@@ -31,6 +31,7 @@ namespace CarBook.Application.Features.CQRS.Handlers.CarHandlers
                 Transmission=commands.Transmission,
                 CoverImageUrl=commands.CoverImageUrl,
                 BrandId=commands.BrandId,
+                
 
             });
         }
