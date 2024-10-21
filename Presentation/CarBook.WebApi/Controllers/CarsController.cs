@@ -64,8 +64,8 @@ namespace CarBook.WebApi.Controllers
             return Ok("Car Alanı Silindi");
         }
         [HttpGet("GetCarWithBrand")]
-        public async Task<IActionResult> GetCarWithBrand() {
-            var values=await _getCarWithBrandQueryHandler.Handle();
+        public  IActionResult GetCarWithBrand() {
+            var values= _getCarWithBrandQueryHandler.Handle();
             return Ok(values);
         }
     }
