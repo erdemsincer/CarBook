@@ -15,6 +15,7 @@ namespace CarBook.WebApi.Controllers
         private readonly RemoveContactCommandHandler _removeContactCommandHandler;
         private readonly GetContactByIdQueryHandler _getContactByIdQueryHandler;
         private readonly GetContactQueryHandler _getContactQueryHandler;
+        
 
         public ContactsController(CreateContactCommandHandler createContactCommandHandler,
             UpdateContactCommandHandler updateContactCommandHandler,
