@@ -21,7 +21,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.PricingHandlers
 
         public async Task Handle(RemovePricingCommand request, CancellationToken cancellationToken)
         {
-           var values=await _repository.GetByIdAsync(request.Id);
+            var values = await _repository.GetByIdAsync(request.Id);
             await _repository.RemoveAsync(values);
         }
     }
