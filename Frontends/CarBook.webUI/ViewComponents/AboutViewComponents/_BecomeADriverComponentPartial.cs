@@ -13,7 +13,7 @@ namespace CarBook.webUI.ViewComponents.AboutViewComponents
 
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-
+			return View();
 		}
 	}
 }
