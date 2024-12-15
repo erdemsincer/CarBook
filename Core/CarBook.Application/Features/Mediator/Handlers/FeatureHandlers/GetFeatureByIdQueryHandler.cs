@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.FeatureHandlers
 {
-    public class GetFeatureByIdQueryHandler : IRequestHandler<GetFeatureByIdQuery, GetFeatureByIdQueryResults>
+    public class GetFeatureByIdQueryHandler : IRequestHandler<GetBlogByIdQuery, GetFeatureByIdQueryResults>
     {
         private readonly IRepository<Feature> _repository;
 
@@ -20,7 +20,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.FeatureHandlers
             _repository = repository;
         }
 
-        public async Task<GetFeatureByIdQueryResults> Handle(GetFeatureByIdQuery request, CancellationToken cancellationToken)
+        public async Task<GetFeatureByIdQueryResults> Handle(GetBlogByIdQuery request, CancellationToken cancellationToken)
         {
             var values=await _repository.GetByIdAsync(request.Id);
             return new GetFeatureByIdQueryResults

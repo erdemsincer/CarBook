@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Queries.FeatureQueries
 {
-    public class GetFeatureQuery:IRequest<List<GetFeatureQueryResult>>
+    public class GetBlogQuery:IRequest<List<GetFeatureQueryResult>>
     {
     }
 }

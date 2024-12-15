@@ -21,14 +21,14 @@ namespace CarBook.WebApi.Controllers
 
         public async Task<IActionResult> FeatureList()
         {
-            var values = await _mediator.Send(new GetFeatureQuery());
+            var values = await _mediator.Send(new GetBlogQuery());
             return Ok(values);
         }
         [HttpGet("{id}")]
 
         public async Task<IActionResult> GetFeature(int id)
         {
-            var values = await _mediator.Send(new GetFeatureByIdQuery(id));
+            var values = await _mediator.Send(new GetBlogByIdQuery(id));
             return Ok(values);
         }
         [HttpPost]

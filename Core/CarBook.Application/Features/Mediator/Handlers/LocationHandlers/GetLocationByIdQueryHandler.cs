@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Handlers.LocationHandlers
 {
-    public class GetLocationByIdQueryHandler : IRequestHandler<GetLocationByIdQuery, GetLocationByIdQueryResults>
+    public class GetBlogByIdQueryHandler : IRequestHandler<GetLocationByIdQuery, GetLocationByIdQueryResults>
     {
         private readonly IRepository<Location> _repository;
 
-        public GetLocationByIdQueryHandler(IRepository<Location> repository)
+        public GetBlogByIdQueryHandler(IRepository<Location> repository)
         {
             _repository = repository;
         }

@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Results.BlogsResults
+namespace CarBook.Application.Features.Mediator.Commands.BlogCommand
 {
-    public class GetBlogsByIdQueryResults
+    public class CreateBlogCommand:IRequest
     {
-        public int BlogId { get; set; }
+        
         public string Title { get; set; }
         public int AuthorId { get; set; }
 
