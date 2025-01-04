@@ -12,24 +12,25 @@ namespace CarBook.Persistence.Repositories.CarRepositories
 {
     public class CarRepository : ICarRepository
     {
-        private readonly CarBookContext carBookcontext;
+        private readonly CarBookContext _carBookcontext;
 
         public CarRepository(CarBookContext carBookcontext)
         {
-            this.carBookcontext = carBookcontext;
+            _carBookcontext = carBookcontext;
         }
 
         public List<Car> GetCarsListWithBrands()
         {
-            var values=carBookcontext.Cars.Include(x=>x.Brand).ToList();
+            var values=_carBookcontext.Cars.Include(x=>x.Brand).ToList();
             return values;
             
             
         }
 
+      
         public List<Car> GetLast5CarWithBrands()
         {
-            var values=carBookcontext.Cars.Include(x=> x.Brand).OrderByDescending(x=>x.CarId).Take(5).ToList();
+            var values=_carBookcontext.Cars.Include(x=> x.Brand).OrderByDescending(x=>x.CarId).Take(5).ToList();
             return values;  
         }
     }
