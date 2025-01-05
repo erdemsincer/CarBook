@@ -27,5 +27,11 @@ namespace CarBook.webUI.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> BlogDetail(int id)
+        {
+
+            return View();
+        }
     }
 }
