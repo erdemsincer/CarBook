@@ -1,4 +1,9 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<ResultCategorydto>
+<div class="sidebar-box ftco-animate">
+    <div class="categories">
+        <h3>Kategoriler</h3>
+        @foreach(var item in Model){
+        <li><a href="#">@item.Name<span>(0)</span></a></li>
+        }
+    </div>
+</div>
