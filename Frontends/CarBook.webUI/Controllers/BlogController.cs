@@ -30,6 +30,9 @@ namespace CarBook.webUI.Controllers
 
         public async Task<IActionResult> BlogDetail(int id)
         {
+            ViewBag.v1 = "Bloglar";
+            ViewBag.v2 = "Blog Detayı ve yorumlar";
+            ViewBag.blogid=id;
 
             return View();
         }

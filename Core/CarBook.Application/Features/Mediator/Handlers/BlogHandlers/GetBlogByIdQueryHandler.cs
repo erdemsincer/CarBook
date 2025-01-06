@@ -32,6 +32,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers
             BlogId = values.BlogId,
             CategoryId = values.CategoryId,
             CoverImageUrl = values.CoverImageUrl,
+            Description=values.Description
               
             
 
