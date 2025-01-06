@@ -26,7 +26,8 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers
         {
             var values=await _repository.GetByIdAsync(request.Id);
             return new GetBlogsByIdQueryResults
-            {CreateDate = values.CreateDate,
+            {
+            CreateDate = values.CreateDate,
             Title = values.Title,
             AuthorId = values.AuthorId,
             BlogId = values.BlogId,
