@@ -26,8 +26,8 @@ namespace CarBook.Application.Features.Mediator.Handlers.BlogHandlers
 
             return values.Select(x=>new GetBlogByAuthorIdQueryResult
             {
-                AuthorID = x.AuthorId,
-                BlogID = x.BlogId,
+                AuthorId = x.AuthorId,
+                BlogId= x.BlogId,
                
                 AuthorName = x.Author.Name,
           
