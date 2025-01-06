@@ -3,6 +3,7 @@ using CarBook.Application.Features.Mediator.Queries.TagCloudQueries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CarBook.WebApi.Controllers
 {
@@ -48,6 +49,15 @@ namespace CarBook.WebApi.Controllers
         {
             await _mediator.Send(command);
             return Ok("TagCloud Başarı ile güncellendi");
+        }
+
+        [HttpGet("GetTagCloudByBlogId")]
+
+        public async Task<IActionResult> GetTagCloudByBlogId(int id)
+        {
+            var values=await _mediator.Send(new GetTagCloudByBlogIdQuery(id));
+            return Ok(values);
+
         }
     }
 }
