@@ -4,6 +4,7 @@ using CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20250204214421_erdem34")]
+    partial class erdem34
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -296,13 +299,16 @@ namespace CarBook.Persistence.Migrations
 
             modelBuilder.Entity("CarBook.Domain.Entities.Comment", b =>
                 {
-                    b.Property<int>("CommentID")
+                    b.Property<int>("CommentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentId"));
 
-                    b.Property<int>("BlogID")
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Blogİd")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
@@ -316,9 +322,9 @@ namespace CarBook.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CommentID");
+                    b.HasKey("CommentId");
 
-                    b.HasIndex("BlogID");
+                    b.HasIndex("BlogId");
 
                     b.ToTable("Comments");
                 });
@@ -619,7 +625,7 @@ namespace CarBook.Persistence.Migrations
                 {
                     b.HasOne("CarBook.Domain.Entities.Blog", "Blog")
                         .WithMany("Comments")
-                        .HasForeignKey("BlogID")
+                        .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
