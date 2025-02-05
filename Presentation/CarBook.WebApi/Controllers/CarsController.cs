@@ -56,7 +56,7 @@ namespace CarBook.WebApi.Controllers
             await _updateCarCommandHandler.Handle(commands);
             return Ok("Car Alanı Güncellendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveCar(int id)
         {
             await _removeCarCommandHandler.Handle(new RemoveCarCommands(id));
