@@ -52,6 +52,17 @@ namespace CarBook.webUI.Areas.Admin.Controllers
             }
             return View();
         }
+        [Route("RemoveBanner/{id}")]
+        public async Task<IActionResult> RemoveBanner(int id)
+        {
+            var client = _clientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"https://localhost:7015/api/Banners/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "AdminBanner", new { area = "Admin" });
+            }
+            return View();
+        }
     }
 }
 
