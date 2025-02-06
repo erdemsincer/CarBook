@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Text;
 
 namespace CarBook.webUI.Areas.Admin.Controllers
 {
@@ -26,6 +27,27 @@ namespace CarBook.webUI.Areas.Admin.Controllers
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultBannerDto>>(jsonData);
                 return View(values);
+            }
+            return View();
+        }
+        [HttpGet]
+
+        [Route("CreateBanner")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Route("CreateBanner")]
+        public async Task<IActionResult> CreateBanner(CreateBannerDto createBannerDto)
+        {
+            var client = _clientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createBannerDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7015/api/Banners", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "AdminBanner", new { area = "Admin" });
             }
             return View();
         }
