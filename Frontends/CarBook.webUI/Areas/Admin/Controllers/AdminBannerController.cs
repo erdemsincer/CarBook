@@ -30,10 +30,11 @@ namespace CarBook.webUI.Areas.Admin.Controllers
             }
             return View();
         }
+
         [HttpGet]
 
         [Route("CreateBanner")]
-        public IActionResult Create()
+        public IActionResult CreateBanner()
         {
             return View();
         }
