@@ -49,9 +49,52 @@ namespace CarBook.webUI.Controllers
             return View();
         }
 
+        [HttpGet]
 
-
-
+        public async Task<IActionResult> UpdateFeature(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var resposenMessage = await client.GetAsync($"https://localhost:7015/api/Features/{id}");
+            if (resposenMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await resposenMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateFeatureDto>(jsonData);
+                return View(values);
+            }
+            return View();
         }
+
+        [HttpPost]
+
+        public async Task<IActionResult> UpdateFeature(UpdateFeatureDto updateFeatureDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateFeatureDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("https://localhost:7015/api/Features/", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+    
+
+        public async Task<IActionResult> RemoveFeature(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"https://localhost:7015/api/Features/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
+
+
+    }
     }
 
