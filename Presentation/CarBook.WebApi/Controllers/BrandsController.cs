@@ -56,7 +56,7 @@ namespace CarBook.WebApi.Controllers
             await _updateBrandCommandHandler.Handle(commands);
             return Ok("Brand Alanı Güncellendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBrand(int id)
         {
             await _removeBrandCommandHandler.Handle(new RemoveBrandCommands(id));
