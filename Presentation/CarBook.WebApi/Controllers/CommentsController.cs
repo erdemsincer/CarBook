@@ -1,5 +1,6 @@
 ﻿using CarBook.Application.Features.RepositoryPattern;
 using CarBook.Domain.Entities;
+using CarBook.Persistence.Repositories.CommentRepositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,12 +45,18 @@ namespace CarBook.WebApi.Controllers
             return Ok(comment);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var comment = _commentRepository.GetById(id);
             _commentRepository.Remove(comment);
             return Ok();
+        }
+        [HttpGet("CommentListByBlog")]
+        public IActionResult CommentListByBlog(int id)
+        {
+            var value = _commentRepository.GetCommentsByBlogId(id);
+            return Ok(value);
         }
     }
 }
