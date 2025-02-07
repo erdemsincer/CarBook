@@ -38,7 +38,7 @@ namespace CarBook.WebApi.Controllers
             await _mediator.Send(command);
             return Ok("Footer Address Başarı ile eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveFooterAddress(int id)
         {
             await _mediator.Send(new RemoveFooterAddressCommand(id));
