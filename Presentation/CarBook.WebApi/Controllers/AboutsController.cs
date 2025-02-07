@@ -50,7 +50,7 @@ namespace CarBook.WebApi.Controllers
             await _createAboutCommandHandler.Handle(createAboutCommand);
             return Ok("Hakkımda bilgisi eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAbout(int id)
         {
             await _removeAboutCommandHandler.Handle(new RemoveAboutCommands(id));
