@@ -17,12 +17,12 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
             _context = context;
         }
 
-        public string BlogTitleByMaxBlogCount()
+        public string GetBlogTitleByMaxBlogCount()
         {
             throw new NotImplementedException();
         }
 
-        public string BrandNameByMaxCar()
+        public string GetBrandNameByMaxCar()
         {
             throw new NotImplementedException();
 
@@ -107,7 +107,7 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
             return values;
         }
 
-        public int LocationCount()
+        public int GetLocationCount()
         {
             var values = _context.Locations.Count();
             return values;
