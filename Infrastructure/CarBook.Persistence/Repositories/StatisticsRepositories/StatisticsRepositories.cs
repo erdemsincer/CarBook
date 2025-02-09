@@ -17,7 +17,7 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
             _context = context;
         }
 
-        public string GetBlogTitleByMaxBlogCount()
+        public string GetBlogTitleByMaxBlogComment()
         {
             throw new NotImplementedException();
         }
