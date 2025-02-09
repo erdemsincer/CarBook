@@ -25,6 +25,7 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
         public string BrandNameByMaxCar()
         {
             throw new NotImplementedException();
+
         }
 
         public int GetAuthorCount()
@@ -33,19 +34,25 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
             return values;
         }
 
-        public double GetAvgRentPriceForDaily()
+        public decimal GetAvgRentPriceForDaily()
         {
-            throw new NotImplementedException();
+            int id = _context.Pricings.Where(y => y.Name == "Günlük").Select(z => z.PricingId).FirstOrDefault();
+            var value = _context.CarPricings.Where(w => w.PricingId == id).Average(x => x.Amount);
+            return value;
         }
 
-        public double GetAvgRentPriceForMonthly()
+        public decimal GetAvgRentPriceForMonthly()
         {
-            throw new NotImplementedException();
+            int id = _context.Pricings.Where(y => y.Name == "Aylık").Select(z => z.PricingId).FirstOrDefault();
+            var value = _context.CarPricings.Where(w => w.PricingId == id).Average(x => x.Amount);
+            return value;
         }
 
-        public double GetAvgRentPriceForWeekly()
+        public decimal GetAvgRentPriceForWeekly()
         {
-            throw new NotImplementedException();
+            int id = _context.Pricings.Where(y => y.Name == "Haftalık").Select(z => z.PricingId).FirstOrDefault();
+            var value = _context.CarPricings.Where(w => w.PricingId == id).Average(x => x.Amount);
+            return value;
         }
 
         public int GetBlogCount()
@@ -68,6 +75,12 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
         public string GetCarBrandAndModelByRentPriceDailyMin()
         {
             throw new NotImplementedException();
+        }
+
+        public int GetCarCount()
+        {
+            var values = _context.Cars.Count();
+            return values;
         }
 
         public int GetCarCountByFuelElectric()
