@@ -44,6 +44,33 @@ namespace CarBook.WebApi.Controllers
             return Ok(values);
         }
 
+        [HttpGet("GetAuthorCount")]
+        public async Task<IActionResult> GetAuthorCount()
+        {
+            var values = await _mediator.Send(new GetAuthorCountQuery());
+            return Ok(values);
+        }
+        [HttpGet("GetAvgRentPriceForDaily")]
+        public async Task<IActionResult> GetAvgRentPriceForDaily()
+        {
+            var values = await _mediator.Send(new GetAvgRentPriceForDailyQuery());
+            return Ok(values);
+        }
+        [HttpGet("GetAvgRentPriceForWeekly")]
+        public async Task<IActionResult> GetAvgRentPriceForWeekly()
+        {
+            var values = await _mediator.Send(new GetAvgRentPriceForWeeklyQuery());
+            return Ok(values);
+        }
+
+        [HttpGet("GetAvgRentPriceForMonthly")]
+        public async Task<IActionResult> GetAvgRentPriceForMonthly()
+        {
+            var values = await _mediator.Send(new GetAvgRentPriceForMonthlyQuery());
+            return Ok(values);
+        }
+
+
 
     }
 }
