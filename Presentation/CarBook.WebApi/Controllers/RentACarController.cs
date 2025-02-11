@@ -17,7 +17,7 @@ namespace CarBook.WebApi.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpGet]
 
         public async Task<IActionResult> GetRentACarListByLocation(int locationId,bool available)
         {

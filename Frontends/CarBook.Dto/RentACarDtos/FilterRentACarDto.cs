@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Results.RentACarResults
+namespace CarBook.Dto.RentACarDtos
 {
-    public class GetRentACarQueryResult
+    public class FilterRentACarDto
     {
-        public int CarId { get; set; }
+        public int carId { get; set; }
         public decimal Amount { get; set; }
-      
+
         public string Brand { get; set; }
         public string Model { get; set; }
         public string CoverImageUrl { get; set; }
+
     }
 }
