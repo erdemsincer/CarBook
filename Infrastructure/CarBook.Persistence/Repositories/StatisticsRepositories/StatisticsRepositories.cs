@@ -121,7 +121,7 @@ namespace CarBook.Persistence.Repositories.StatisticsRepositories
         public int GetCarCountByKmSmallerThen1000()
         {
            var values=_context.Cars.Where(x=>x.Km<=1000).Count();
-            return values;
+           return values;
         }
 
         public int GetCarCountByTranmissionIsAuto()

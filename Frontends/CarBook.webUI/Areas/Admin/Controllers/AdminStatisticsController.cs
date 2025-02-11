@@ -93,7 +93,7 @@ namespace CarBook.webUI.Areas.Admin.Controllers
             if (responseMessage8.IsSuccessStatusCode)
             {
                 int avgRentPriceForMonthlyRandom = random.Next(0, 101);
-                var jsonData8 = await responseMessage7.Content.ReadAsStringAsync();
+                var jsonData8 = await responseMessage8.Content.ReadAsStringAsync();
                 var values8 = JsonConvert.DeserializeObject<ResultStatisticsDto>(jsonData8);
                 ViewBag.avgRentPriceForMonthly = values8.avgRentPriceForMonthly.ToString("0.00");
                 ViewBag.avgRentPriceForMonthlyRandom = avgRentPriceForMonthlyRandom;
