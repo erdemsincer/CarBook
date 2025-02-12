@@ -14,6 +14,7 @@ namespace CarBook.Domain.Entities
         public string Email { get; set; }
         public string Phone { get; set; }
         public int CarId { get; set; }
+        public Car Car { get; set; }
         public int? PickUpLocationId { get; set; }
         public int? DropOffLocationId { get; set; }
         public int Age { get; set; }
