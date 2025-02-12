@@ -14,10 +14,13 @@ namespace CarBook.Domain.Entities
         public string Email { get; set; }
         public string Phone { get; set; }
         public int CarId { get; set; }
-     
-        //public string PickUpLocationId { get; set; }
+        public int? PickUpLocationId { get; set; }
+        public int? DropOffLocationId { get; set; }
         public int Age { get; set; }
         public int DriverLicanseYear { get; set; }
         public string? Description { get; set; }
+
+        public Location PickUpLocation { get; set; }
+        public Location DropOffLocation { get; set; }
     }
 }
