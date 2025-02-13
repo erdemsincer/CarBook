@@ -13,26 +13,25 @@ namespace CarBook.Application.Features.Mediator.Handlers.ReservationHandlers
     public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand>
     {
         private readonly IRepository<Reservation> _repository;
-
         public CreateReservationCommandHandler(IRepository<Reservation> repository)
         {
             _repository = repository;
         }
-
         public async Task Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
             await _repository.CreateAsync(new Reservation
             {
-                Name = request.Name,
-                Surname = request.Surname,
-                Email = request.Email,
-                Phone = request.Phone,
-                CarId = request.CarId,
-                PickUpLocationId = request.PickUpLocationId,
-                DropOffLocationId = request.DropOffLocationId,
                 Age = request.Age,
+                CarId = request.CarId,
+                Description = request.Description,
                 DriverLicanseYear = request.DriverLicanseYear,
-                Description = request.Description
+                DropOffLocationId = request.DropOffLocationId,
+                Email = request.Email,
+                Name = request.Name,
+                Phone = request.Phone,
+                PickUpLocationId = request.PickUpLocationId,
+                Surname = request.Surname,
+                Status = "Rezervasyon Alındı"
             });
         }
     }
