@@ -1,7 +1,9 @@
 ﻿using CarBook.Dto.LocationDtos;
+using CarBook.Dto.ReservationDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace CarBook.webUI.Controllers
 {
@@ -13,7 +15,7 @@ namespace CarBook.webUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+        [HttpGet]
         public async Task<IActionResult> Index(int id)
         {
             
@@ -34,6 +36,20 @@ namespace CarBook.webUI.Controllers
             ViewBag.v = values2;
 
 
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(CreateReservationDto createReservationDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(createReservationDto);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("http://localhost:5026/api/Reservations", content);
+            if (responseMessage.IsSuccessStatusCode) {
+                return RedirectToAction("Index", "Default");
+
+            }
             return View();
         }
     }
