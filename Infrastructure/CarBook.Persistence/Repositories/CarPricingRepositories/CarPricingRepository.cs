@@ -25,5 +25,11 @@ namespace CarBook.Persistence.Repositories.CarPricingRepositories
             var values = _carBookcontext.CarPricings.Include(x => x.Car).ThenInclude(y => y.Brand).Include(x=> x.Pricing).Where(z=>z.PricingId==2).ToList();
             return values;
         }
-    }
-}
+
+		public List<CarPricing> GetCarPricingWithTimePeriod()
+		{
+            return _carBookcontext.CarPricings.Include(x => x.Pricing).ToList();
+		}
+		}
+	}
+
