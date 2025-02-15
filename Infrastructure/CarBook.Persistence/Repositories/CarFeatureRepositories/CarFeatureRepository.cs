@@ -35,7 +35,8 @@ namespace CarBook.Persistence.Repositories.CarFeatureRepositories
 
         public void CreateCarFeatureByCar(CarFeature carFeature)
         {
-            throw new NotImplementedException();
+            _context.CarFeatures.Add(carFeature);
+            _context.SaveChanges();
         }
 
         public List<CarFeature> GetCarFeaturesByCarID(int CarId)
