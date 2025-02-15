@@ -10,7 +10,7 @@
 
 
     <div class="pt-5 mt-5">
-        <h3 class="mb-5">6 Comments</h3>
+        <h3 class="mb-5">@ViewBag.commentCount</h3>
         @await Component.InvokeAsync("_CommentListByBlogComponentPartial",new { id = ViewBag.blogid }))
         @await Component.InvokeAsync("_AddCommentComponentPartial")
        
