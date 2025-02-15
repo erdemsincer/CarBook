@@ -48,12 +48,13 @@ namespace CarBook.webUI.Controllers
 
         public PartialViewResult AddComment(int id)
         {
+            ViewBag.blogid = id;
             return PartialView();
         }
 
         [HttpPost]
 
-        public async Task< IActionResult> AddComment(CreateCommentDto createCommentDto)
+        public async Task<IActionResult> AddComment(CreateCommentDto createCommentDto)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData4 = JsonConvert.SerializeObject(createCommentDto);

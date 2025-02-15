@@ -11,6 +11,7 @@ namespace CarBook.Dto.CommentDto
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Description { get; set; }
+        public string Email { get; set; }
         public int BlogID { get; set; }
     }
 }
