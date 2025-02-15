@@ -39,5 +39,20 @@ namespace CarBook.webUI.Controllers
             ViewBag.commentCount = jsondata2;
             return View();
         }
+
+
+        [HttpGet]
+
+        public PartialViewResult AddComment()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+
+        public IActionResult AddComment(string p)
+        {
+            return View();
+        }
     }
 }
