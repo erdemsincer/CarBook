@@ -1,7 +1,9 @@
 ﻿using CarBook.Dto.BlogDtos;
 using CarBook.Dto.CommentDto;
+using CarBook.Dto.ReservationDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace CarBook.webUI.Controllers
 {
@@ -51,8 +53,16 @@ namespace CarBook.webUI.Controllers
 
         [HttpPost]
 
-        public IActionResult AddComment(CreateCommentDto createCommentDto)
+        public async Task< IActionResult> AddComment(CreateCommentDto createCommentDto)
         {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData4 = JsonConvert.SerializeObject(createCommentDto);
+            StringContent stringContent4 = new StringContent(jsonData4, Encoding.UTF8, "application/json");
+            var responseMessage4 = await client.PostAsync("https://localhost:7015/api/Comments/CreateCommentWithMediator", stringContent4);
+            if (responseMessage4.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "Default");
+            }
             return View();
         }
     }
