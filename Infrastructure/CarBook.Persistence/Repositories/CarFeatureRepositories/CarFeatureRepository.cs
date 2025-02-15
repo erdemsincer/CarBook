@@ -21,12 +21,14 @@ namespace CarBook.Persistence.Repositories.CarFeatureRepositories
 
         public void ChangeCarFeatureAvailableToFalse(int id)
         {
-            throw new NotImplementedException();
+            var values=_context.CarFeatures.Where(x => x.CarFeatureId == id).FirstOrDefault();
+            values.Available = false;
         }
 
         public void ChangeCarFeatureAvailableToTrue(int id)
         {
-            throw new NotImplementedException();
+            var values = _context.CarFeatures.Where(x => x.CarFeatureId == id).FirstOrDefault();
+            values.Available = true;
         }
 
         public void CreateCarFeatureByCar(CarFeature carFeature)
