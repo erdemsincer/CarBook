@@ -1,4 +1,5 @@
 ﻿using CarBook.Dto.BlogDtos;
+using CarBook.Dto.CommentDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -43,14 +44,14 @@ namespace CarBook.webUI.Controllers
 
         [HttpGet]
 
-        public PartialViewResult AddComment()
+        public PartialViewResult AddComment(int id)
         {
             return PartialView();
         }
 
         [HttpPost]
 
-        public IActionResult AddComment(string p)
+        public IActionResult AddComment(CreateCommentDto createCommentDto)
         {
             return View();
         }
