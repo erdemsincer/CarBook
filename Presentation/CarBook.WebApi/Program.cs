@@ -8,6 +8,7 @@ using CarBook.Application.Features.Mediator.Handlers.BlogHandlers;
 using CarBook.Application.Features.RepositoryPattern;
 using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.BlogInterfaces;
+using CarBook.Application.Interfaces.CarFeatureInterfaces;
 using CarBook.Application.Interfaces.CarInterfaces;
 using CarBook.Application.Interfaces.CarPricingInterfaces;
 using CarBook.Application.Interfaces.IRentACarInterfaces;
@@ -18,6 +19,7 @@ using CarBook.Domain.Entities;
 using CarBook.Persistence.Context;
 using CarBook.Persistence.Repositories;
 using CarBook.Persistence.Repositories.BlogRepositories;
+using CarBook.Persistence.Repositories.CarFeatureRepositories;
 using CarBook.Persistence.Repositories.CarPricingRepositories;
 using CarBook.Persistence.Repositories.CarRepositories;
 using CarBook.Persistence.Repositories.CommentRepositories;
@@ -32,6 +34,7 @@ builder.Services.AddScoped<CarBookContext, CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository), typeof(CarRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 builder.Services.AddScoped<IRentACarRepository, RentACarRepository>();
 
 

@@ -1,5 +1,6 @@
 ﻿using CarBook.Dto.BrandDtos;
 using CarBook.Dto.CarDtos;
+using CarBook.Dto.CarFeatureDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
@@ -110,6 +111,19 @@ namespace CarBook.webUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> CarDetail(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:7015/api/CarDetail/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<ResultCarFeatureByCarIdDto>(jsonData);
+                return View(values);
             }
             return View();
         }
