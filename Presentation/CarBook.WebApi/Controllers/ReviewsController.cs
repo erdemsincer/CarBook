@@ -17,9 +17,9 @@ namespace CarBook.WebApi.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult ReviewListByCarId(int id)
+		public async Task<IActionResult> ReviewListByCarId(int id)
 		{
-			var values=_mediator.Send(new GetReviewByCarIdQuery(id));
+			var values=await _mediator.Send(new GetReviewByCarIdQuery(id));
 			return Ok(values);
 		}
 	}
