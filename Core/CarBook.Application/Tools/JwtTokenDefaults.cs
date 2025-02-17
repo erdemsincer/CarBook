@@ -10,7 +10,7 @@ namespace CarBook.Application.Tools
 	{
 		public const string ValidAudience = "https://localhost";
 		public const string ValidIssuer = "https://localhost";
-		public const string Key = "superSecretKey@345erdem123ERDEM";
+		public const string Key = "superSecretKey@345erdem123ERDEM123";
 		public const int Expire = 3;
 
 	}

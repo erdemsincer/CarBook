@@ -15,6 +15,13 @@ namespace CarBook.Application.Features.Mediator.Handlers.AppUserHandlers
 	{
 		private readonly IRepository<AppUser> _appUserRepository;
 		private readonly IRepository<AppRole> _appRoleRepository;
+
+		public GetCheckAppUserQueryHandler(IRepository<AppRole> appRoleRepository, IRepository<AppUser> appUserRepository)
+		{
+			_appRoleRepository = appRoleRepository;
+			_appUserRepository = appUserRepository;
+		}
+
 		public async Task<GetCheckAppUserQueryResult> Handle(GetCheckAppUserQuery request, CancellationToken cancellationToken)
 		{
 			var values = new GetCheckAppUserQueryResult();
