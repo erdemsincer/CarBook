@@ -11,6 +11,8 @@ namespace CarBook.Persistence.Context
 
         }
 
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<About> About { get; set; }
         public DbSet<Banner> Banner { get; set; }
         public DbSet<Brand> Brands { get; set; }
