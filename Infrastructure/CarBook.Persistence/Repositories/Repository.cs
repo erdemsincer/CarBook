@@ -1,10 +1,12 @@
 ﻿using CarBook.Application.Interfaces;
+using CarBook.Domain.Entities;
 using CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +33,12 @@ namespace CarBook.Persistence.Repositories
 
         }
 
-        public async Task<T> GetByIdAsync(int id)
+		public async Task<T?> GetByFilterAsync(Expression<Func<T, bool>> filter)
+		{
+			return await _context.Set<T>().SingleOrDefaultAsync(filter);
+		}
+
+		public async Task<T> GetByIdAsync(int id)
         {
            return await _context.Set<T>().FindAsync(id);
         }
